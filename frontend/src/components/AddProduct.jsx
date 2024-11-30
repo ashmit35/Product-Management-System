@@ -7,7 +7,7 @@ const AddProduct = () => {
     productName: "",
     description: "",
     price: "",
-    status: "Select"
+    status: ""
   });
 
   const [message, setMessage] = useState("");
@@ -38,7 +38,7 @@ const AddProduct = () => {
         productName: "",
         description: "",
         price: "",
-        status: "Select"
+        status: ""
       })
     }, 2000);
 

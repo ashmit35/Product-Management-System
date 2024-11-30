@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
@@ -14,14 +14,13 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link to={"/"} className="nav-link active text-white" aria-current="page" >Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to={"/add"} className="nav-link active text-white" aria-current="page" >Add Product</Link>
-                        </li>
+
 
                     </ul>
                     <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-light" type="submit">Search</button>
+                        <Link to={"/add"} className="nav-link active text-white" aria-current="page" >
+                            <button className="btn btn-outline-light" type="submit" >Add Product</button>
+                        </Link>
                     </form>
                 </div>
             </div>

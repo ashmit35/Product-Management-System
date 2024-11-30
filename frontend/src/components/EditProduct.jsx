@@ -12,17 +12,19 @@ const EditProduct = () => {
     price: "",
     status: ""
   });
+
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState("");
 
-  useEffect(() => (
+  const fetchProductById = () => {
     productService.getProductById(id)
       .then((res) => {
-        const { productName, description, price, status } = res.data;
-        setProduct({productName, description, price, status});
-        console.log(res.data)
+        setProduct(res.data);
       })
       .catch((error) => { console.log(error) })
+  }
+  useEffect(() => (
+    fetchProductById()
   ), []);
 
 
@@ -44,17 +46,20 @@ const EditProduct = () => {
         setSuccess(false);
       })
 
-    setProduct({
-      productName: "",
-      description: "",
-      price: "",
-      status: ""
-    })
 
     setTimeout(() => {
       setMessage(null);
       setSuccess(null);
-    }, 2000);
+
+      setProduct({
+        productName: "",
+        description: "",
+        price: "",
+        status: "Select"
+      })
+
+    }, 2000)
+
   }
   return (
     <>
